@@ -58,7 +58,7 @@ def check_my_code(request,code):
         context["buyer"] = Hcode.proxy_man.username
         if Hcode.used:
             context["used"] = "已使用"
-            # 加一个linux时间戳转换
+            # 加一个linux时间戳转换bu'y
         else:
             context["used"] = "未使用"
         return render(request, "check-my-code.html", context)
@@ -314,7 +314,7 @@ def buy_items(request):
                        "error_name3": "余卡不足，请重试！"}
             return render(request, 'page-error.html', context)  # 引入
 
-        discount = 1
+        discount = Decimal(1 - (user[1].level * 0.05))
 
         cost = software.software_cost * num * discount  # 生成此次提卡价格
         count = user[1].balance - (cost)  # 减了以后得余额
@@ -328,6 +328,41 @@ def buy_items(request):
         deal_record = Deal_record.objects.create(deal_code=get_deal_code(),acount=user[0],money=cost,symbol=False,notes="提卡-"+str(software.software_name)+"_数量："+str(num))
         deal_record.save()#保存
 
+        all_up_proxy = get_my_up_proxy(user)  # 获取所有上级代理的账号对象
+        # 结算出最顶级上级的价格，减去本用户的价格，获取需要分配的金额
+        if all_up_proxy != False:
+            highest_proxy = all_up_proxy[-1]
+            dirty_money = cost - (software.software_cost * num * Decimal(1 - (highest_proxy[1].level * 0.05)))  # 生成中间差价
+
+            # 进入多层代理账号循环
+            for i in range(len(all_up_proxy)):
+                if i == 0:  # 如果匹配到是第0个号，就是本账号的直属上级代理。将他与本账号的cost价格相减，得出它的利润
+                    cost_up = software.software_cost * num * Decimal(
+                        1 - (all_up_proxy[i][1].level * 0.05))  # 生成本次循环账号的代理价格
+                    sub_money = cost - cost_up  # 获得这层代理的中间差价
+                    # 生成订单
+                    up_deal_record = Deal_record.objects.create(deal_code=get_deal_code(5), acount=all_up_proxy[i][0],
+                                                                money=sub_money, symbol=True,
+                                                                notes="下级代理提卡的提成：" + "%.2f" % sub_money)
+                    up_deal_record.save()
+                    # 完成加钱
+                    all_up_proxy[i][1].balance += sub_money
+                    all_up_proxy[i][1].save()
+                else:
+                    sub_money = cost_up - (software.software_cost * num * Decimal(
+                        1 - (all_up_proxy[i][1].level * 0.05)))  # 获得这层代理的中间差价
+                    cost_up = software.software_cost * num * Decimal(
+                        1 - (all_up_proxy[i][1].level * 0.05))  # 生成本次循环账号的代理价格，以供下次循环使用。
+                    # 生成订单
+                    up_deal_record = Deal_record.objects.create(deal_code=get_deal_code(5), acount=all_up_proxy[i][0],
+                                                                money=sub_money, symbol=True,
+                                                                notes="下级代理提卡的提成：" + "%.2f" % sub_money)
+                    up_deal_record.save()
+                    # 完成加钱
+                    all_up_proxy[i][1].balance += sub_money
+                    all_up_proxy[i][1].save()
+
+		
         #获取所有没用过的卡
 
         #提取卡。
