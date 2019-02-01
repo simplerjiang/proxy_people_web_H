@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+会员授权商店 -- 上传卡密（管理员专用）
+{% endblock %}
+{% block wrapper %}
+
+<div class="page-wrapper" style="min-height: 410px;">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">控制台</h3> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url "index" %}">主页</a></li>
+                        <li class="breadcrumb-item active">上传卡密（管理员专用）</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="form-valide" action="{% url "Admin_Post_Code" %}" method="post" novalidate="novalidate">
+                                        {% csrf_token %}
+                                            {% if warn %}
+                                            <div class="form-group">
+                                            <div class="alert alert-danger alert-dismissible fade show col-md-12">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                <strong>警告！</strong> {{ warn }}
+                                            </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if success %}
+                                            <div class="form-group">
+                                            <div class="alert alert-primary alert-dismissible fade show col-md-12">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                <strong>警告！</strong> {{ success }}
+                                            </div>
+                                            </div>
+                                            {% endif %}
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skill">卡密种类<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="val-skill" name="software_id">
+                                                    <option value="None">请选择会员</option>
+                                                    {% if software  %}
+                                                        {% for foo in software %}
+                                                            <option value="{{ foo.software_id }}">{{ foo.software_name }}</option>
+                                                        {% endfor %}
+                                                    {% else %}
+                                                        <option value="null">暂无会员</option>
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" >
+                                            <label class="col-lg-4 col-form-label" for="val-suggestions">卡密集合<span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" style="height: 300px" id="val-suggestions" name="Codes" rows="5" placeholder="请将卡密放入此处，并保证一行一个卡密"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-currency">提示：</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="可能稍慢，请勿关闭！" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label"></label>
+                                            <div class="col-lg-8">
+                                                <label class="css-control css-control-primary css-checkbox" for="val-terms">
+                                                        <input type="checkbox" class="css-control-input" id="val-terms" name="Check" value="1" checked="checked">
+                                                        <span class="css-control-indicator"></span> 自动去重
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">提交</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+
+{% endblock wrapper %}
