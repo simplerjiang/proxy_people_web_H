@@ -241,10 +241,15 @@ def index_page(request): #控制台主页
 
 @login_required
 def shop_page(request):
+    user = request.user
+    user = get_proxy_account(username=user.username)
+    if user == False:
+        return HttpResponse("出现错误！报告错误号：1000。\n 你可能登陆了多个账户或管理员账户，请登出后再操作！")
+    # 生成本账号折扣
     all_software = Software.objects.all()
     all_software_list = []
     others_info_object = Others_info.objects.get(user=request.user)
-    discount = Decimal(1)  # 折扣，输出一个浮点数
+    discount = Decimal(1 - (user[1].level * 0.05)) # 折扣，输出一个浮点数
     for i in all_software:
         a = {
             "software_cost":"%.2f" % (i.software_cost*discount),
@@ -266,7 +271,12 @@ def shop_detail(request, software_id):
         except:
             return HttpResponse("出现错误！报告错误号：1000。\n 你可能登陆了多个账户或管理员账户，请登出后再操作！")
 
-        discount = 1  # 折扣，输出一个浮点数
+        user = request.user
+        user = get_proxy_account(username=user.username)
+        if user == False:
+            return HttpResponse("出现错误！报告错误号：1000。\n 你可能登陆了多个账户或管理员账户，请登出后再操作！")
+        #生成本账号折扣
+        discount = Decimal(1 - (user[1].level * 0.05))  # 折扣，输出一个浮点数
         software = Software.objects.get(software_id=software_id)
         software_list = {
             "software_cost":"%.2f" % (software.software_cost*discount),
@@ -317,6 +327,7 @@ def buy_items(request):
         discount = Decimal(1 - (user[1].level * 0.05))
 
         cost = software.software_cost * num * discount  # 生成此次提卡价格
+        singlecost = software.software_cost * discount
         count = user[1].balance - (cost)  # 减了以后得余额
         if count < 0: #余额错误，返回错误页面
             context = {"link":"/shop/item/"+sid+'/',"error_name":"余额不足","error_name2":"余额不足","error_name3":"您的余额为："+str(user[1].balance)}
@@ -370,6 +381,7 @@ def buy_items(request):
             code = all_codes[i]
             code.proxy_man = user[0]
             code.used = True
+            code.cost = singlecost
             code.deal_object = deal_record
             code.save()
 
