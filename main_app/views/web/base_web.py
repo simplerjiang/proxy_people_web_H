@@ -214,6 +214,7 @@ def get_my_up_proxy(user): #传入一个get_proxy_account函数的返回列表�
 def index_page(request): #控制台主页
     user = request.user
     context = {"username":user.username}
+    userarray = get_proxy_account(username=user.username)
     try:
         user_other_info = Others_info.objects.get(user=user)
     except:
@@ -229,7 +230,8 @@ def index_page(request): #控制台主页
     except:
         context["auths_num"] = 0
 
-    context['discount'] = "%.1f" % 1
+    realdiscount = Decimal(1 - (userarray[1].level * 0.05)) * 10
+    context['discount'] = "%.1f折" % realdiscount # 折扣，输出一个浮点数
     context["my_level"] = user_other_info.level
 
     notices = Notice.objects.all().order_by('-time')  #公告
