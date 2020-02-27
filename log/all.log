@@ -7256,3 +7256,226 @@ TabError: inconsistent use of tabs and spaces in indentation
 2019-02-02 18:40:24,846 [Thread-4:4128] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (16,); args=(16,)
 2019-02-02 18:40:24,847 [Thread-4:4128] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (16,); args=(16,)
 2019-02-02 18:40:24,848 [Thread-4:4128] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_software"."id", "main_app_software"."software_id", "main_app_software"."software_name", "main_app_software"."software_version_number", "main_app_software"."software_each_time", "main_app_software"."software_cost", "main_app_software"."software_try", "main_app_software"."software_try_hours" FROM "main_app_software"' - PARAMS = (); args=()
+2020-02-27 23:26:04,572 [Dummy-1:14840] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+2020-02-27 23:26:04,572 [Dummy-1:14840] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+2020-02-27 23:26:08,114 [Thread-2:16344] [django.request:252] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 394, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\handlers\base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\proxy_people_web\urls.py", line 18, in <module>
+    from main_app.views import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\__init__.py", line 1, in <module>
+    from .api import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\api.py", line 14, in <module>
+    from .time_deal import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\time_deal.py", line 1, in <module>
+    import pytz
+ModuleNotFoundError: No module named 'pytz'
+2020-02-27 23:26:12,924 [Thread-3:3716] [django.request:252] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 394, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\handlers\base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\middleware\common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 647, in is_valid_path
+    resolve(path, urlconf)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 522, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\proxy_people_web\urls.py", line 18, in <module>
+    from main_app.views import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\__init__.py", line 1, in <module>
+    from .api import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\api.py", line 14, in <module>
+    from .time_deal import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\time_deal.py", line 1, in <module>
+    import pytz
+ModuleNotFoundError: No module named 'pytz'
+2020-02-27 23:26:20,131 [Thread-5:1920] [django.request:252] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 394, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\handlers\base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\middleware\common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 647, in is_valid_path
+    resolve(path, urlconf)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 522, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\proxy_people_web\urls.py", line 18, in <module>
+    from main_app.views import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\__init__.py", line 1, in <module>
+    from .api import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\api.py", line 14, in <module>
+    from .time_deal import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\time_deal.py", line 1, in <module>
+    import pytz
+ModuleNotFoundError: No module named 'pytz'
+2020-02-27 23:26:20,232 [Thread-4:1056] [django.request:252] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 394, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\handlers\base.py", line 108, in get_response
+    response = middleware_method(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\middleware\common.py", line 74, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 647, in is_valid_path
+    resolve(path, urlconf)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 522, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 366, in resolve
+    for pattern in self.url_patterns:
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 402, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\site-packages\django\core\urlresolvers.py", line 396, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38-32\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\proxy_people_web\urls.py", line 18, in <module>
+    from main_app.views import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\__init__.py", line 1, in <module>
+    from .api import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\api.py", line 14, in <module>
+    from .time_deal import *
+  File "C:\Users\Administrator\PycharmProjects\proxy_people_web_H\main_app\views\time_deal.py", line 1, in <module>
+    import pytz
+ModuleNotFoundError: No module named 'pytz'
+2020-02-27 23:28:14,725 [Dummy-1:12104] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = "\n            SELECT name, type FROM sqlite_master\n            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'\n            ORDER BY name" - PARAMS = (); args=None
+2020-02-27 23:28:14,725 [Dummy-1:12104] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"' - PARAMS = (); args=()
+2020-02-27 23:29:28,324 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:29:28,353 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,354 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)' - PARAMS = ('pbkdf2_sha256$20000$GlGAiuUzwdCA$wM2LCSA3HtAMzzl/EKGtR6OeTPPWfMj2pc+zmSdrBsQ=', None, False, '123', '', '', '1013171256', False, True, '2020-02-27 15:29:28.324922'); args=['pbkdf2_sha256$20000$GlGAiuUzwdCA$wM2LCSA3HtAMzzl/EKGtR6OeTPPWfMj2pc+zmSdrBsQ=', None, False, '123', '', '', '1013171256', False, True, '2020-02-27 15:29:28.324922']
+2020-02-27 23:29:28,361 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."TOKEN" = %s' - PARAMS = ('O4j0E0b9Z6q8s0',); args=('O4j0E0b9Z6q8s0',)
+2020-02-27 23:29:28,361 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,363 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'INSERT INTO "main_app_others_info" ("user_id", "balance", "ad", "TOKEN", "level", "up_proxy") VALUES (%s, %s, %s, %s, %s, %s)' - PARAMS = (32, '0.00', 'G3v6u4h0P9l9U5', 'O4j0E0b9Z6q8s0', 1, 0); args=[32, '0.00', 'G3v6u4h0P9l9U5', 'O4j0E0b9Z6q8s0', 1, 0]
+2020-02-27 23:29:28,367 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,368 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'UPDATE "main_app_others_info" SET "user_id" = %s, "balance" = %s, "ad" = %s, "TOKEN" = %s, "level" = %s, "up_proxy" = %s WHERE "main_app_others_info"."id" = %s' - PARAMS = (32, '0.00', 'G3v6u4h0P9l9U5', 'O4j0E0b9Z6q8s0', 1, 0, 29); args=(32, '0.00', 'G3v6u4h0P9l9U5', 'O4j0E0b9Z6q8s0', 1, 0, 29)
+2020-02-27 23:29:28,373 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:29:28,400 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = %s LIMIT 1' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',)
+2020-02-27 23:29:28,401 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,402 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT %s AS "session_key", %s AS "session_data", %s AS "expire_date"' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', 'ZTA2ZDFkNWJmNWY5Y2Y3Y2Y3NjVhODVlM2U1NDNkNjE3YmVkNDIxNTp7fQ==', '2020-03-12 15:29:28.400922'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', 'ZTA2ZDFkNWJmNWY5Y2Y3Y2Y3NjVhODVlM2U1NDNkNjE3YmVkNDIxNTp7fQ==', '2020-03-12 15:29:28.400922')
+2020-02-27 23:29:28,406 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = %s' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',)
+2020-02-27 23:29:28,407 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,408 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'DELETE FROM "django_session" WHERE "django_session"."session_key" IN (%s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8',)
+2020-02-27 23:29:28,413 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,415 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'UPDATE "auth_user" SET "last_login" = %s WHERE "auth_user"."id" = %s' - PARAMS = ('2020-02-27 15:29:28.413922', 32); args=('2020-02-27 15:29:28.413922', 32)
+2020-02-27 23:29:28,420 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'BEGIN' - PARAMS = (); args=None
+2020-02-27 23:29:28,421 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'UPDATE "django_session" SET "session_data" = %s, "expire_date" = %s WHERE "django_session"."session_key" = %s' - PARAMS = ('ZjMxNDFkZTU5Y2Q3M2Y1ZjFhOWJlYmZlNTg4OGQxOTc4NjI4YjIyYTp7Il9hdXRoX3VzZXJfaWQiOiIzMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjM3NzEyODE1NDU2MmI2OGEzOTk1ZmIyMTJlYWZhYTExMWVmZTEwMSJ9', '2020-03-12 15:29:28.420929', '8ozwyvd2iflgutc25ibhk5f8k6jwxgt8'); args=('ZjMxNDFkZTU5Y2Q3M2Y1ZjFhOWJlYmZlNTg4OGQxOTc4NjI4YjIyYTp7Il9hdXRoX3VzZXJfaWQiOiIzMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjM3NzEyODE1NDU2MmI2OGEzOTk1ZmIyMTJlYWZhYTExMWVmZTEwMSJ9', '2020-03-12 15:29:28.420929', '8ozwyvd2iflgutc25ibhk5f8k6jwxgt8')
+2020-02-27 23:29:28,422 [Thread-29:13416] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT %s AS "session_key", %s AS "session_data", %s AS "expire_date"' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', 'ZjMxNDFkZTU5Y2Q3M2Y1ZjFhOWJlYmZlNTg4OGQxOTc4NjI4YjIyYTp7Il9hdXRoX3VzZXJfaWQiOiIzMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjM3NzEyODE1NDU2MmI2OGEzOTk1ZmIyMTJlYWZhYTExMWVmZTEwMSJ9', '2020-03-12 15:29:28.420929'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', 'ZjMxNDFkZTU5Y2Q3M2Y1ZjFhOWJlYmZlNTg4OGQxOTc4NjI4YjIyYTp7Il9hdXRoX3VzZXJfaWQiOiIzMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNjM3NzEyODE1NDU2MmI2OGEzOTk1ZmIyMTJlYWZhYTExMWVmZTEwMSJ9', '2020-03-12 15:29:28.420929')
+2020-02-27 23:29:28,442 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:28.435936'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:28.435936')
+2020-02-27 23:29:28,443 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:28,444 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:29:28,445 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:28,446 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:28,447 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s' - PARAMS = ('*', 32); args=('*', 32)
+2020-02-27 23:29:28,448 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "main_app_notice"."id", "main_app_notice"."admin_object_id", "main_app_notice"."time", "main_app_notice"."title", "main_app_notice"."word" FROM "main_app_notice" ORDER BY "main_app_notice"."time" DESC LIMIT 3' - PARAMS = (); args=()
+2020-02-27 23:29:28,448 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (29,); args=(29,)
+2020-02-27 23:29:28,458 [Thread-28:13412] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_time_code"."id", "main_app_time_code"."software_id", "main_app_time_code"."time", "main_app_time_code"."code", "main_app_time_code"."cost", "main_app_time_code"."proxy_man_id", "main_app_time_code"."used", "main_app_time_code"."deal_object_id", "main_app_time_code"."begin_time" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s ORDER BY "main_app_time_code"."id" DESC LIMIT 4' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:32,677 [Thread-54:6332] [django.db.backends:88] [utils:execute] [DEBUG]- (0.002) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:32.674758'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:32.674758')
+2020-02-27 23:29:32,679 [Thread-54:6332] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:32,680 [Thread-54:6332] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."up_proxy" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:33,816 [Thread-57:16200] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:33.813063'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:33.813063')
+2020-02-27 23:29:33,818 [Thread-57:16200] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:33,827 [Thread-57:16200] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_deal_record"."id", "main_app_deal_record"."time", "main_app_deal_record"."deal_code", "main_app_deal_record"."acount_id", "main_app_deal_record"."money", "main_app_deal_record"."symbol", "main_app_deal_record"."notes" FROM "main_app_deal_record" WHERE "main_app_deal_record"."acount_id" = %s ORDER BY "main_app_deal_record"."time" DESC' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:34,715 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:34.713644'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:34.713644')
+2020-02-27 23:29:34,717 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:34,719 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:29:34,720 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:34,721 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:34,722 [Thread-60:1012] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "main_app_software"."id", "main_app_software"."software_id", "main_app_software"."software_name", "main_app_software"."software_version_number", "main_app_software"."software_each_time", "main_app_software"."software_cost", "main_app_software"."software_try", "main_app_software"."software_try_hours" FROM "main_app_software"' - PARAMS = (); args=()
+2020-02-27 23:29:35,431 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:35.430641'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:29:35.430641')
+2020-02-27 23:29:35,433 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:35,434 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:29:35,435 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:35,436 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:29:35,437 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s' - PARAMS = ('*', 32); args=('*', 32)
+2020-02-27 23:29:35,438 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_notice"."id", "main_app_notice"."admin_object_id", "main_app_notice"."time", "main_app_notice"."title", "main_app_notice"."word" FROM "main_app_notice" ORDER BY "main_app_notice"."time" DESC LIMIT 3' - PARAMS = (); args=()
+2020-02-27 23:29:35,439 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (29,); args=(29,)
+2020-02-27 23:29:35,448 [Thread-63:13048] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "main_app_time_code"."id", "main_app_time_code"."software_id", "main_app_time_code"."time", "main_app_time_code"."code", "main_app_time_code"."cost", "main_app_time_code"."proxy_man_id", "main_app_time_code"."used", "main_app_time_code"."deal_object_id", "main_app_time_code"."begin_time" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s ORDER BY "main_app_time_code"."id" DESC LIMIT 4' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:12,465 [Thread-66:6596] [django.db.backends:88] [utils:execute] [DEBUG]- (0.002) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:12.461604'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:12.461604')
+2020-02-27 23:30:12,467 [Thread-66:6596] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:15,046 [Thread-70:1064] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:15.045767'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:15.045767')
+2020-02-27 23:30:15,048 [Thread-70:1064] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:15,922 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:15.919992'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:15.919992')
+2020-02-27 23:30:15,923 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:15,926 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = %s' - PARAMS = ('123',); args=('123',)
+2020-02-27 23:30:15,927 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:15,928 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_others_info"."id", "main_app_others_info"."user_id", "main_app_others_info"."balance", "main_app_others_info"."ad", "main_app_others_info"."TOKEN", "main_app_others_info"."level", "main_app_others_info"."up_proxy" FROM "main_app_others_info" WHERE "main_app_others_info"."user_id" = %s' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:15,929 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT COUNT(%s) AS "__count" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s' - PARAMS = ('*', 32); args=('*', 32)
+2020-02-27 23:30:15,930 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_notice"."id", "main_app_notice"."admin_object_id", "main_app_notice"."time", "main_app_notice"."title", "main_app_notice"."word" FROM "main_app_notice" ORDER BY "main_app_notice"."time" DESC LIMIT 3' - PARAMS = (); args=()
+2020-02-27 23:30:15,931 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (29,); args=(29,)
+2020-02-27 23:30:15,937 [Thread-72:11880] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "main_app_time_code"."id", "main_app_time_code"."software_id", "main_app_time_code"."time", "main_app_time_code"."code", "main_app_time_code"."cost", "main_app_time_code"."proxy_man_id", "main_app_time_code"."used", "main_app_time_code"."deal_object_id", "main_app_time_code"."begin_time" FROM "main_app_time_code" WHERE "main_app_time_code"."proxy_man_id" = %s ORDER BY "main_app_time_code"."id" DESC LIMIT 4' - PARAMS = (32,); args=(32,)
+2020-02-27 23:30:16,966 [Thread-75:11596] [django.db.backends:88] [utils:execute] [DEBUG]- (0.000) QUERY = 'SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = %s AND "django_session"."expire_date" > %s)' - PARAMS = ('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:16.965744'); args=('8ozwyvd2iflgutc25ibhk5f8k6jwxgt8', '2020-02-27 15:30:16.965744')
+2020-02-27 23:30:16,968 [Thread-75:11596] [django.db.backends:88] [utils:execute] [DEBUG]- (0.001) QUERY = 'SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = %s' - PARAMS = (32,); args=(32,)
